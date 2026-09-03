@@ -1,7 +1,10 @@
 ---
 ---
 <header class="site-header">
-  <a href="/" class="logo">HealthOrient</a>
+  <a href="/" class="logo">
+    <img src="/logo-icon.png" alt="" class="logo-mark" />
+    HealthOrient
+</a>
   <nav class="nav">
     <a href="/navigate-care">Navigate Care</a>
     <a href="/coverage">Coverage</a>
@@ -80,4 +83,13 @@
       transform: none;
     }
   }
+  .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  height: 28px;
+  width: auto;
+}
 </style>
