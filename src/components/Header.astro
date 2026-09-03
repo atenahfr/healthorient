@@ -4,15 +4,17 @@
   <a href="/" class="logo">
     <img src="/logo-icon.png" alt="" class="logo-mark" />
     HealthOrient
-</a>
-  <nav class="nav">
-    <a href="/navigate-care">Navigate Care</a>
-    <a href="/coverage">Coverage</a>
-    <a href="/health-library">Health Library</a>
-    <a href="/programs">Programs</a>
-    <a href="/about">About</a>
-  </nav>
-  <a href="/get-started" class="cta">Get Started</a>
+  </a>
+  <div class="right-group">
+    <nav class="nav">
+      <a href="/navigate-care">Navigate Care</a>
+      <a href="/coverage">Coverage</a>
+      <a href="/health-library">Health Library</a>
+      <a href="/programs">Programs</a>
+      <a href="/about">About</a>
+    </nav>
+    <a href="/get-started" class="cta">Get Started</a>
+  </div>
 </header>
 
 <style>
@@ -25,11 +27,23 @@
     background: var(--paper);
   }
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: 20px;
     color: var(--navy);
     text-decoration: none;
+  }
+  .logo-mark {
+    height: 28px;
+    width: auto;
+  }
+  .right-group {
+    display: flex;
+    align-items: center;
+    gap: 40px;
   }
   .nav {
     display: flex;
@@ -54,12 +68,8 @@
     background: var(--teal);
     transition: width 0.2s ease;
   }
-  .nav a:hover {
-    color: var(--teal);
-  }
-  .nav a:hover::after {
-    width: 100%;
-  }
+  .nav a:hover { color: var(--teal); }
+  .nav a:hover::after { width: 100%; }
   .cta {
     background: var(--teal);
     color: var(--paper);
@@ -76,20 +86,7 @@
     box-shadow: 0 6px 16px rgba(15, 36, 56, 0.15);
   }
   @media (prefers-reduced-motion: reduce) {
-    .nav a, .nav a::after, .cta {
-      transition: none;
-    }
-    .cta:hover {
-      transform: none;
-    }
+    .nav a, .nav a::after, .cta { transition: none; }
+    .cta:hover { transform: none; }
   }
-  .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.logo-mark {
-  height: 28px;
-  width: auto;
-}
 </style>

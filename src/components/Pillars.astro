@@ -1,0 +1,32 @@
+---
+const links = [
+  { label: "Navigate Care", desc: "Find the right kind of care, step by step.", href: "/navigate-care" },
+  { label: "Coverage", desc: "Understand OHIP, health cards, and what's covered.", href: "/coverage" },
+  { label: "Health Library", desc: "Plain-language answers, reviewed for accuracy.", href: "/health-library" },
+];
+---
+<section class="pillars">
+  <div class="pillars-grid">
+    {links.map((l) => (
+      <a class="pillar" href={l.href}>
+        <h3>{l.label}</h3>
+        <p>{l.desc}</p>
+        <span class="link-arrow">Learn more →</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .pillars { max-width: 1040px; margin: 0 auto; padding: 80px 24px; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+  .pillar {
+    text-decoration: none; color: var(--navy);
+    border-top: 2px solid var(--line); padding-top: 18px;
+    transition: border-color 0.15s ease;
+  }
+  .pillar:hover { border-color: var(--teal); }
+  .pillar h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; margin: 0 0 8px; }
+  .pillar p { font-size: 14px; color: var(--navy); opacity: 0.7; line-height: 1.5; margin: 0 0 12px; }
+  .link-arrow { font-size: 13px; font-weight: 600; color: var(--teal); }
+</style>

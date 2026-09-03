@@ -24,7 +24,7 @@
 <style>
   .hero {
     position: relative;
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 110px 24px 90px;
     text-align: center;
@@ -54,12 +54,13 @@
   .hero h1 {
     position: relative;
     z-index: 1;
+    max-width: 640px;
+    margin: 0 auto 20px;
     font-family: 'Fraunces', serif;
     font-size: 48px;
     font-weight: 600;
     color: var(--navy);
     line-height: 1.15;
-    margin: 0 0 20px;
     text-wrap: balance;
   }
   .hero h1 em {
@@ -73,6 +74,7 @@
     color: var(--navy);
     opacity: 0.75;
     margin: 0 0 32px;
+    white-space: nowrap;
   }
   .hero-actions {
     position: relative;
@@ -118,5 +120,8 @@
   @media (prefers-reduced-motion: reduce) {
     .hero-cta, .hero-secondary { transition: none; }
     .hero-cta:hover, .hero-secondary:hover { transform: none; }
+  }
+  @media (max-width: 640px) {
+    .subhead { white-space: normal; }
   }
 </style>
