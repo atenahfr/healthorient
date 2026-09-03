@@ -1,31 +1,86 @@
 ---
 ---
 <section class="hero">
-  <h1>Find your way through the healthcare system</h1>
+  <div class="hero-decor" aria-hidden="true">
+    <svg viewBox="0 0 400 400" width="400" height="400">
+      <circle cx="200" cy="200" r="180" fill="none" stroke="#1B7A88" stroke-width="1" opacity="0.15" />
+      <circle cx="200" cy="200" r="140" fill="none" stroke="#1B7A88" stroke-width="1" opacity="0.12" />
+      <circle cx="200" cy="200" r="100" fill="none" stroke="#2F8F5B" stroke-width="1" opacity="0.12" />
+      <line x1="200" y1="20" x2="200" y2="60" stroke="#1B7A88" stroke-width="2" opacity="0.25" />
+      <line x1="200" y1="340" x2="200" y2="380" stroke="#1B7A88" stroke-width="2" opacity="0.15" />
+      <line x1="20" y1="200" x2="60" y2="200" stroke="#1B7A88" stroke-width="2" opacity="0.15" />
+      <line x1="340" y1="200" x2="380" y2="200" stroke="#1B7A88" stroke-width="2" opacity="0.15" />
+    </svg>
+  </div>
+  <span class="eyebrow">Ontario · Free &amp; Confidential</span>
+  <h1>Find your way through the <em>healthcare</em> system</h1>
   <p class="subhead">Free, plain-language navigation and support for anyone who feels lost in the system.</p>
-  <a href="/get-started" class="hero-cta">Get Started</a>
+  <div class="hero-actions">
+    <a href="/get-started" class="hero-cta">Get Started</a>
+    <a href="/about" class="hero-secondary">How it works</a>
+  </div>
 </section>
 
 <style>
   .hero {
+    position: relative;
     max-width: 720px;
     margin: 0 auto;
-    padding: 100px 24px 80px;
+    padding: 110px 24px 90px;
     text-align: center;
+    overflow: hidden;
+  }
+  .hero-decor {
+    position: absolute;
+    top: -80px;
+    right: -100px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .eyebrow {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    background: rgba(27, 122, 136, 0.1);
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
   }
   .hero h1 {
+    position: relative;
+    z-index: 1;
     font-family: 'Fraunces', serif;
-    font-size: 44px;
+    font-size: 48px;
     font-weight: 600;
     color: var(--navy);
     line-height: 1.15;
     margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
   }
   .subhead {
+    position: relative;
+    z-index: 1;
     font-size: 18px;
     color: var(--navy);
     opacity: 0.75;
     margin: 0 0 32px;
+  }
+  .hero-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
   }
   .hero-cta {
     display: inline-block;
@@ -36,5 +91,32 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .hero-cta:hover {
+    background: #17636F;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 36, 56, 0.15);
+  }
+  .hero-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--navy);
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .hero-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cta, .hero-secondary { transition: none; }
+    .hero-cta:hover, .hero-secondary:hover { transform: none; }
   }
 </style>

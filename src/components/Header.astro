@@ -33,13 +33,29 @@
     gap: 28px;
   }
   .nav a {
+    position: relative;
     color: var(--navy);
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
+    padding-bottom: 4px;
+    transition: color 0.15s ease;
+  }
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--teal);
+    transition: width 0.2s ease;
   }
   .nav a:hover {
     color: var(--teal);
+  }
+  .nav a:hover::after {
+    width: 100%;
   }
   .cta {
     background: var(--teal);
@@ -49,5 +65,19 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .cta:hover {
+    background: #17636F;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 36, 56, 0.15);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav a, .nav a::after, .cta {
+      transition: none;
+    }
+    .cta:hover {
+      transform: none;
+    }
   }
 </style>

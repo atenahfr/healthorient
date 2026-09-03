@@ -1,19 +1,26 @@
 ---
 const paths = [
-  { label: "I just moved to Ontario", href: "/navigate-care/new-to-ontario" },
-  { label: "I don't have a health card yet", href: "/coverage/ohip" },
-  { label: "I need to find a doctor", href: "/navigate-care/find-a-doctor" },
-  { label: "I don't understand my coverage", href: "/coverage" },
-  { label: "I need mental health support", href: "/navigate-care/mental-health" },
-  { label: "I want to volunteer or partner", href: "/about/volunteer" },
+  { label: "I just moved to Ontario", href: "/navigate-care/new-to-ontario", accent: "teal" },
+  { label: "I don't have a health card yet", href: "/coverage/ohip", accent: "green" },
+  { label: "I need to find a doctor", href: "/navigate-care/find-a-doctor", accent: "teal" },
+  { label: "I don't understand my coverage", href: "/coverage", accent: "green" },
+  { label: "I need mental health support", href: "/navigate-care/mental-health", accent: "teal" },
+  { label: "I want to volunteer or partner", href: "/about/volunteer", accent: "green" },
 ];
 ---
 <section class="triage">
+  <span class="eyebrow">Start here</span>
   <h2>What brings you here today?</h2>
   <div class="cards">
     {paths.map((p) => (
-      <a class="card" href={p.href}>
-        <span>{p.label}</span>
+      <a class={`card accent-${p.accent}`} href={p.href}>
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+            <path d="M15 9L10.5 13.5L9 15L13.5 10.5L15 9Z" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="label">{p.label}</span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
     ))}
@@ -21,56 +28,35 @@ const paths = [
 </section>
 
 <style>
-  .triage {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 40px 24px 100px;
+  .triage { max-width: 1040px; margin: 0 auto; padding: 40px 24px 110px; }
+  .eyebrow {
+    display: block; text-align: center; color: var(--teal);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 10px;
   }
   .triage h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 24px;
-    color: var(--navy);
-    text-align: center;
-    margin: 0 0 32px;
+    font-family: 'Fraunces', serif; font-size: 26px; color: var(--navy);
+    text-align: center; margin: 0 0 36px;
   }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
   .card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 20px 22px;
-    text-decoration: none;
-    color: var(--navy);
-    font-weight: 500;
-    font-size: 15px;
+    display: flex; align-items: center; gap: 14px;
+    background: white; border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; text-decoration: none; color: var(--navy);
+    box-shadow: 0 1px 2px rgba(15, 36, 56, 0.03);
     transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  .card:hover {
-    border-color: var(--teal);
-    box-shadow: 0 6px 20px rgba(15, 36, 56, 0.08);
-    transform: translateY(-2px);
-  }
-  .card .arrow {
-    color: var(--teal);
-    transition: transform 0.15s ease;
-  }
-  .card:hover .arrow {
-    transform: translateX(3px);
-  }
+  .card:hover { box-shadow: 0 10px 28px rgba(15, 36, 56, 0.1); transform: translateY(-3px); }
+  .icon { flex: none; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .accent-teal .icon { background: rgba(27, 122, 136, 0.12); color: var(--teal); }
+  .accent-green .icon { background: rgba(47, 143, 91, 0.12); color: var(--green); }
+  .accent-teal:hover { border-color: var(--teal); }
+  .accent-green:hover { border-color: var(--green); }
+  .label { flex: 1; font-weight: 500; font-size: 15px; }
+  .arrow { opacity: 0.4; transition: transform 0.15s ease, opacity 0.15s ease; }
+  .card:hover .arrow { transform: translateX(3px); opacity: 1; }
   @media (prefers-reduced-motion: reduce) {
-    .card, .card .arrow {
-      transition: none;
-    }
-    .card:hover {
-      transform: none;
-    }
+    .card, .arrow { transition: none; }
+    .card:hover { transform: none; }
   }
 </style>
