@@ -1,0 +1,76 @@
+---
+const paths = [
+  { label: "I just moved to Ontario", href: "/navigate-care/new-to-ontario" },
+  { label: "I don't have a health card yet", href: "/coverage/ohip" },
+  { label: "I need to find a doctor", href: "/navigate-care/find-a-doctor" },
+  { label: "I don't understand my coverage", href: "/coverage" },
+  { label: "I need mental health support", href: "/navigate-care/mental-health" },
+  { label: "I want to volunteer or partner", href: "/about/volunteer" },
+];
+---
+<section class="triage">
+  <h2>What brings you here today?</h2>
+  <div class="cards">
+    {paths.map((p) => (
+      <a class="card" href={p.href}>
+        <span>{p.label}</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .triage {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+  }
+  .triage h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    color: var(--navy);
+    text-align: center;
+    margin: 0 0 32px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 15px;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 6px 20px rgba(15, 36, 56, 0.08);
+    transform: translateY(-2px);
+  }
+  .card .arrow {
+    color: var(--teal);
+    transition: transform 0.15s ease;
+  }
+  .card:hover .arrow {
+    transform: translateX(3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card, .card .arrow {
+      transition: none;
+    }
+    .card:hover {
+      transform: none;
+    }
+  }
+</style>

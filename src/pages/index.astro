@@ -1,6 +1,11 @@
 ---
-
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Triage from '../components/Triage.astro';
 ---
+
+<Header />
 
 <html lang="en">
 	<head>
@@ -12,6 +17,7 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Hero />
+		<Triage />
 	</body>
 </html>
